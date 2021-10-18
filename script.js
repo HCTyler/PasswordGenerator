@@ -1,24 +1,56 @@
-// possible outputs that can be generated
-var symbols = ["~","!","@","#","$","%","^","&","*","(",")","-","=","+","<",">","/","?"]
-var numbers = ["1","2","3","4","5","6","7","8","9","0"]
-var lowerLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-var upperLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S,","T","U","V","W","X","Y","Z"]
-
-function getPasswordOption() {
-  var length = 
-}
-function 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+var passwordText = document.querySelector("#password");
 
+// possible outputs that can be generated
+
+function getPassword() {
+  var lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+  var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var symbols = "!@#$%^&*()_+{}|[];:',./<>?";
+  var numbers = "1234567890";
+  var passwordConditions = "";
+  var password = "";
+
+  var passwordLength = prompt(
+    "How many characters would you like your password to contain? Please enter a value between 8 to 128.");
+  
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    alert("Please enter a valid length. The value has to be between 8 to 128.");
+    return;}
+  
+  else {
+    var symbolsValue = confirm ("Click OK to include special characters")
+    var numbersValue = confirm ("Click OK to include numeric characters.")
+    var lowerLettersValue = confirm ("Click OK to include lowercase characters.")
+    var upperLettersValue = confirm ("Click OK to include uppercase characters.")
+  }
+
+//conditionals: if confirmed, add value to conditions
+  if (symbolsValue){passwordConditions += symbols}
+  if (numbersValue){passwordConditions += numbers}
+  if (lowerLettersValue){passwordConditions += lowerLetters}
+  if (upperLettersValue){passwordConditions += upperLetters}
+
+
+  for (i=0; i < passwordLength; i++) {
+    password += passwordConditions[Math.floor(Math.random()*passwordConditions.length)]
+  }
+    return(password)
+}
+
+
+
+//writing the password
+function writePassword(password) {
+  if (password.length === 0){
+    return
+  }
   passwordText.value = password;
 
 }
 
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", function() { writePassword(getPassword()) });
