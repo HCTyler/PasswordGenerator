@@ -1,4 +1,5 @@
 # Password Generator Homework
+
 [Link to the application](https://hctyler.github.io/PasswordGenerator/)
 
 [Link to my Github repository](https://github.com/HCTyler/PasswordGenerator)
@@ -7,6 +8,7 @@ The objective of the homework was to modify a starter code to create an applicat
 ![Screenshot of the the password generator front page](./images/FrontPage.png)
 
 The criteria for the passwords are as follows:
+
 * The password needs to be between the length of 8 to 128 characters.
 * The user is given the option to have uppercase, lowercase, numeric, and special characters in the password.
 * The password is then displayed within the page or as an alert.
